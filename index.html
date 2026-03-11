@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- PapaParse & Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- Background Design Element -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <h1>Our Library</h1>
+                <p>Tracking every page turned this year.</p>
+            </div>
+            <div class="global-stats glass-panel">
+                <div class="stat-box">
+                    <span class="stat-label">Total Pages</span>
+                    <span class="stat-value" id="global-pages">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Total Books</span>
+                    <span class="stat-value" id="global-books">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Content -->
+        <main>
+            <!-- Leaderboard Section -->
+            <section class="leaderboard">
+                <div class="reader-card glass-panel" id="card-savannah">
+                    <div class="card-header">
+                        <div class="avatar savannah-avatar">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <h2>Savannah</h2>
+                        <div class="crown-icon" id="crown-savannah" style="display: none;">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <span class="number" id="savannah-pages">0</span>
+                            <span class="label">Pages</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number" id="savannah-books">0</span>
+                            <span class="label">Books</span>
+                        </div>
+                    </div>
+                    <div class="recent-book">
+                        <span class="label">Just Finished</span>
+                        <span class="book-title" id="savannah-recent">Loading...</span>
+                    </div>
+                </div>
+
+                <div class="reader-card glass-panel" id="card-franklyn">
+                    <div class="card-header">
+                        <div class="avatar franklyn-avatar">
+                            <i class="fa-solid fa-book-journal-whills"></i>
+                        </div>
+                        <h2>Franklyn</h2>
+                        <div class="crown-icon" id="crown-franklyn" style="display: none;">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <span class="number" id="franklyn-pages">0</span>
+                            <span class="label">Pages</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number" id="franklyn-books">0</span>
+                            <span class="label">Books</span>
+                        </div>
+                    </div>
+                    <div class="recent-book">
+                        <span class="label">Just Finished</span>
+                        <span class="book-title" id="franklyn-recent">Loading...</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chart Section -->
+            <section class="analytics glass-panel">
+                <div class="section-header">
+                    <h3>Reading Pace</h3>
+                    <p>Cumulative pages read over time</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </section>
+            
+            <!-- Activity Feed -->
+            <section class="activity-feed glass-panel">
+                <div class="section-header">
+                    <h3>Recent Activity</h3>
+                </div>
+                <ul class="feed-list" id="activity-list">
+                    <!-- Feed items injected via JS -->
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
